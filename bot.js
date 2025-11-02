@@ -6,9 +6,8 @@ const bodyParser = require('body-parser');
 // Инициализация клиента
 const client = new Client({
     authStrategy: new LocalAuth(),
-    puppeteer: { headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] }
+    puppeteer: { headless: true }
 });
-
 
 // Генерация QR-кода
 client.on('qr', (qr) => {
