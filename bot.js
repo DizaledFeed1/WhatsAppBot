@@ -68,6 +68,15 @@ process.on('SIGINT', async () => {
     }
 });
 
+process.on('unhandledRejection', (reason, promise) => {
+    console.error('Unhandled Rejection at:', promise, 'reason:', reason);
+});
+
+process.on('uncaughtException', err => {
+    console.error('Uncaught Exception thrown:', err);
+});
+
+
 process.on('SIGTERM', async () => {
     console.log('Получен сигнал SIGTERM. Завершаем работу...');
     try {
